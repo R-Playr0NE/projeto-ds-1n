@@ -1,0 +1,37 @@
+package com.projeto1N.exemplo1N.Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.projeto1N.exemplo1N.Entity.Funcionario;
+import com.projeto1N.exemplo1N.Service.EmpresaService;
+import com.projeto1N.exemplo1N.Service.FuncionarioService;
+
+@Controller
+@RequestMapping("/funcionarioCTR")
+public class FuncionarioContrroller {
+
+    private final FuncionarioService oFuncionarioService;
+    private final EmpresaService oEmpresaService;
+    
+    public FuncionarioContrroller(
+        FuncionarioService oFuncionarioService,
+        EmpresaService oEmpresaService) {
+
+        this.oFuncionarioService = oFuncionarioService;
+        this.oEmpresaService = oEmpresaService;
+        }
+
+    @GetMapping("/formCadastrar")
+    public String showFormCadastrar(Model oModel) {
+
+        oModel.addAttribute("funcionario", new Funcionario());
+
+        oModel.addAttribute("empresas", oEmpresaService.listarEmpresas());
+
+        return "cadastrarFuncionario";
+
+    }
+}

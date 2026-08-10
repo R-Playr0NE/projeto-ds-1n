@@ -23,6 +23,15 @@ public class Funcionario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_funcionario;
 
+    public Funcionario(Long id_funcionario, String nome_funcionario, String cargo_funcionario,
+            Double salario_funcionario, Empresa empresaID) {
+        this.id_funcionario = id_funcionario;
+        this.nome_funcionario = nome_funcionario;
+        this.cargo_funcionario = cargo_funcionario;
+        this.salario_funcionario = salario_funcionario;
+        this.empresaID = empresaID;
+    }
+
     @Column(name = "nome_funcionario", nullable = false, length = 100)
     private String nome_funcionario;
 
