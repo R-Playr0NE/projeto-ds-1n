@@ -29,15 +29,15 @@
     </thead>
     <tbody>
         <tr th:each="func : ${funcionarios}">
-            <td th:text="${func.codigo}"></td>
-            <td th:text="${func.nome}"></td>
-            <td th:text="${func.cargo}"></td>
-            <td th:text="${func.salario}"></td>
-            <td th:text="${func.empresa.nome}"></td>
+            <td th:text="${func.id_funcionario}"></td>
+            <td th:text="${func.nome_funcionario}"></td>
+            <td th:text="${func.cargo_funcionario}"></td>
+            <td th:text="${func.salario_funcionario}"></td>
+            <td th:text="${func.empresaID.nome_empresa}"></td>
             <td>
-                <a th:href="@{/funcionarioCTR/editarFunc/{id}(id=${func.codigo})}">Editar</a>
+                <a th:href="@{/funcionarioCTR/editarFunc/{id}(id=${func.id_funcionario})}">Editar</a>
 
-                <a th:href="@{'/funcionarioCTR/deletarFunc/'+${func.codigo}}"
+                <a th:href="@{'/funcionarioCTR/deletarFunc/'+${func.id_funcionario}}"
                 onclick="return confirm('Deseja realmente excluir este Funcionario?')">Excluir</a>
             </td>
         </tr>
@@ -45,7 +45,7 @@
 </table>
 
 <br>
-<a th:href="@{/funcionarioCTR/formCadastroFuncionario}">Cadastrar Novo Funcionário</a>
+<a th:href="@{/funcionarioCTR/formCadastrar}">Cadastrar Novo Funcionário</a>
 
 </body>
 </html>

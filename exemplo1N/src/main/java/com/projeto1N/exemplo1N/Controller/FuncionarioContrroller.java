@@ -3,6 +3,8 @@ package com.projeto1N.exemplo1N.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.projeto1N.exemplo1N.Entity.Funcionario;
@@ -34,4 +36,21 @@ public class FuncionarioContrroller {
         return "cadastrarFuncionario";
 
     }
+
+    @GetMapping("/listarAll")
+    public String ListarTodosFunc(Model oModel) {
+
+        oModel.addAttribute("funcionarios",
+        oFuncionarioService.listarTodosFunc());
+
+        return "listarFuncionario";
+    }
+
+    @PostMapping("/salvarFuncionario")
+    public String cadastrarFuncionario(@ModelAttribute Funcionario oFuncionario) {
+
+        oFuncionarioService.cadastrarFuncionario(oFuncionario);
+        return "redirect:/funcionarioCTR/listarAll";
+    }
+
 }
