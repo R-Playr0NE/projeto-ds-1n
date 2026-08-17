@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -49,7 +50,37 @@ public class FuncionarioContrroller {
     @PostMapping("/salvarFuncionario")
     public String cadastrarFuncionario(@ModelAttribute Funcionario oFuncionario) {
 
+        if(oFuncionario.getId_funcionario() != null){
+            oFuncionarioService.atualizarFuncionario(
+                oFuncionario.getId_funcionario(), oFuncionario);
+        }
+        else {
+            oFuncionarioService.cadastrarFuncionario(oFuncionario);
+        }
+
         oFuncionarioService.cadastrarFuncionario(oFuncionario);
+        return "redirect:/funcionarioCTR/listarAll";
+    }
+
+    @GetMapping("editarFunc/{id}")
+    public String atualizarFuncionario(@PathVariable("id") Long id, Model oModel) {
+
+        Funcionario funcionarioExistente =
+        oFuncionarioService.buscarFuncionarioId(id)
+            .orElseThrow(() -> new IllegalArgumentException(
+                "Funcionário não encontrado com o ID: " + id));
+
+        oModel.addAttribute("funcionario", funcionarioExistente);
+        oModel.addAttribute("empresas",oEmpresaService.listarEmpresas());
+
+        return "cadastrarFuncionario";
+
+    }
+
+    @GetMapping("/deletarFunc/{id}")
+    public String excluirFuncionario(@PathVariable("id") Long id) {
+
+        oFuncionarioService.deletarFuncionario(id);
         return "redirect:/funcionarioCTR/listarAll";
     }
 
