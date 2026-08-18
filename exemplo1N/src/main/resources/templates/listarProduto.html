@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Produtos</title>
+
+    <style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+    </style>
+
+</head>
+<body>
+
+<h2>Lista de Produtos</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Empresa</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="prod : ${produtos}">
+            <td th:text="${prod.codigo_prod}"></td>
+            <td th:text="${prod.nome_prod}"></td>
+            <td th:text="${prod.perco_prod}"></td>
+            <td th:text="${prod.empresaID.nome_empresa}"></td>
+            <td>
+                <a th:href="@{/produtoCTR/editarProd/{id}(id=${prod.codigo_prod})}">Editar</a>
+
+                <a th:href="@{'/produtoCTR/deletarProd/'+${prod.codigo_prod}}"
+                onclick="return confirm('Deseja realmente excluir este Produto?')">Excluir</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<a th:href="@{/produtoCTR/formCadastrar}">Cadastrar Novo produto</a>
+
+</body>
+</html>
