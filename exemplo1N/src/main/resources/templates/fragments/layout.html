@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bismarck Hub</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Seu CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <div id="container" class="container-fluid" th:fragment="layout(activePage, content)">
+
+        <!-- HEADER -->
+        <div th:replace="~{fragments/header :: header}"></div>
+
+        <!-- NAVBAR -->
+        <div th:replace="~{fragments/navbar :: navbar(${activePage})}"></div>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <div id="main-wrapper" class="row">
+
+            <!-- SIDEBAR -->
+            <div class="col-12 col-md-3 col-lg-3 p-0">
+
+                <div th:replace="~{fragments/sidebar :: sidebar(${activePage})}"></div>
+
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div id="main-content" class="col-12 col-md-9 col-lg-9">
+
+                <div th:insert="${content}"></div>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div th:replace="~{fragments/footer :: footer}"></div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

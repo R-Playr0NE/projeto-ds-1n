@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Empresa</title>
-    </head>
+    <link rel="icon" type="image/png" th:href="@{/image/empresa-icon.png}">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Meu CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
 <body>
-    
-    <h2>Formulário de Cadastro de Empresa</h2>
 
-    <form th:action="@{/empresaCTR/salvarEmpresa}" th:object="${empresa}" method="POST">
-        
-        <input type="hidden" th:field="*{id_empresa}" />
+    <div class="form-container">
 
-        <div>
-            <label for="nome">Nome Empresa:</label>
-            <input type="text" id="nome" th:field="*{nome_empresa}" required />
-        </div>
-        <br>
-        
-        <div>
-            <label for="cnpj">CNPJ:</label>
-            <input type="text" id="cnpj_empresa" th:field="*{cnpj_empresa}" required />
-        </div>
-        <br>
+        <h2 class="page-title">Formulário de Cadastro de Empresa</h2>
 
-        <div>
-            <label for="ramo">Ramo Empresa:</label>
-            <input type="text" id="ramo" th:field="*{ramo_empresa}" required />
-        </div>
-        <br>
+        <form class="system-form" th:action="@{/empresaCTR/salvarEmpresa}" th:object="${empresa}" method="POST">
 
-        <button type="submit">Salvar Empresa</button>
-    </form>
+            <input type="hidden" th:field="*{id_empresa}" />
 
-    <br>
-    <a th:href="@{/empresaCTR/listarTodasEmpresas}">Voltar para a Listagem</a>
+            <div class="form-group">
+                <label for="nome">Nome Empresa:</label>
+                <input type="text" id="nome" th:field="*{nome_empresa}" required class="form-input" />
+            </div>
+
+            <div class="form-group">
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj_empresa" th:field="*{cnpj_empresa}" required class="form-input" />
+            </div>
+
+            <div class="form-group">
+                <label for="ramo">Ramo Empresa:</label>
+                <input type="text" id="ramo" th:field="*{ramo_empresa}" required class="form-input" />
+            </div>
+
+
+
+            <div class="form-actions">
+
+                <a th:href="@{/empresaCTR/listarTodasEmpresas}" class="btn-form btn-back">Voltar</a>
+
+                <button type="submit" class="btn-form">Salvar Empresa</button>
+
+            </div>
+
+        </form>
+
+    </div>
 
 </body>
+
 </html>

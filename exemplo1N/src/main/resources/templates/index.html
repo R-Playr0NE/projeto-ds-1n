@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bismarck Hub - Home</title>
+    <link rel="icon" type="image/png" th:href="@{/image/empresa-icon.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body th:replace="~{fragments/layout :: layout('home', ~{::main})}">
+
+    <main th:fragment="main">
+
+        <h2 class="page-title">
+            Bem-vindo ao Bismarck Hub
+        </h2>
+
+        <div class="welcome-box">
+
+            <h3>Painel de Gerenciamento</h3>
+
+            <p>
+                Bem-vindo ao sistema Bismarck Hub.
+            </p>
+
+            <p>
+                Utilize o menu acima para navegar pelo sistema.
+            </p>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

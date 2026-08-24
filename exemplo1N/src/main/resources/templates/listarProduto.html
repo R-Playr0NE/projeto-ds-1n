@@ -1,49 +1,62 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Produtos</title>
-
-    <style>
-    table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    }
-    </style>
-
+    <link rel="icon" type="image/png" th:href="@{/image/empresa-icon.png}">
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Meu CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
 
-<h2>Lista de Produtos</h2>
+<body th:replace="~{fragments/layout :: layout('produtos', ~{::main})}">
 
-<table border="1">
-    <thead>
-        <tr>
-            <th>Codigo</th>
-            <th>Nome</th>
-            <th>Preço</th>
-            <th>Empresa</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="prod : ${produtos}">
-            <td th:text="${prod.codigo_prod}"></td>
-            <td th:text="${prod.nome_prod}"></td>
-            <td th:text="${prod.perco_prod}"></td>
-            <td th:text="${prod.empresaID.nome_empresa}"></td>
-            <td>
-                <a th:href="@{/produtoCTR/editarProd/{id}(id=${prod.codigo_prod})}">Editar</a>
+    <main th:fragment="main">
 
-                <a th:href="@{'/produtoCTR/deletarProd/'+${prod.codigo_prod}}"
-                onclick="return confirm('Deseja realmente excluir este Produto?')">Excluir</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+        <h2 class="page-title">Lista de Produtos</h2>
 
-<br>
-<a th:href="@{/produtoCTR/formCadastrar}">Cadastrar Novo produto</a>
+        <a class="btn-action" th:href="@{/produtoCTR/formCadastrar}">+ Cadastrar Novo produto</a>
 
+        <div class="table-responsive">
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Empresa</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="prod : ${produtos}">
+                        <td th:text="${prod.codigo_prod}"></td>
+                        <td th:text="${prod.nome_prod}"></td>
+                        <td th:text="${prod.perco_prod}"></td>
+                        <td th:text="${prod.empresaID.nome_empresa}"></td>
+                        <td>
+                            <a th:href="@{/produtoCTR/editarProd/{id}(id=${prod.codigo_prod})}">[ Editar ]</a>
+
+                            <a th:href="@{'/produtoCTR/deletarProd/'+${prod.codigo_prod}}"
+                                onclick="return confirm('Deseja realmente excluir este Produto?')">[ Excluir ]</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </main>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

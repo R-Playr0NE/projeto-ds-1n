@@ -1,0 +1,57 @@
+<aside id="sidebar" th:fragment="sidebar(tipo)">
+
+    <!-- SIDEBAR HOME -->
+    <div th:if="${tipo == 'home'}">
+
+        <img src="https://imgs.search.brave.com/qr2fJpPMqYSTN71iCG1-FbC2P_CWrbsj8zFyeXLLOFY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS50ZW5vci5jb20v/TjBxOVlVQXEtNW9B/QUFBbS9taWt1Lndl/YnA"
+            alt="Imagem decorativa" class="sidebar-image">
+
+        <p>
+            <strong>Sistema 100% Seguro<br />(Confia)</strong>
+        </p>
+
+    </div>
+
+    <!-- SIDEBAR FUNCIONÁRIOS -->
+    <div th:if="${tipo == 'funcionarios'}">
+
+        <h3>Funcionários</h3>
+
+        <img src="https://imgs.search.brave.com/hGGGeu-fCk62t0PrExFu4ekETkMJzBJYu0zQMpATR58/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YTEudGVub3IuY29t/L20vLW5kWDFnT1pp/ajRBQUFBZC9zb3Zp/ZXQtdW5pb24tdXNz/ci5naWY.gif"
+            alt="Classe trabalhadora" class="sidebar-image">
+
+        <strong>
+            Gerenciamento de funcionários
+        </strong>
+
+    </div>
+
+    <!-- SIDEBAR EMPRESAS -->
+    <div th:if="${tipo == 'empresas'}">
+
+        <h3>Empresas</h3>
+
+        <img src="https://imgs.search.brave.com/w9m6dl6QWw5OChcDV2-mNqwy90508qrneM9BhBMdnjs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YTEudGVub3IuY29t/L20vVE1Nc3pLaWk0/Zm9BQUFBZC9kZXBy/ZXNzJUMzJUEzby1j/YXBpdGFsaXNtby5n/aWY.gif"
+            alt="Enfim o capitalismo kkkk" class="sidebar-image">
+
+        <strong>
+            Gerenciamento de empresas
+        </strong>
+
+    </div>
+
+    <!-- SIDEBAR PRODUTOS -->
+    <div th:if="${tipo == 'produtos'}">
+
+        <h3>Produtos</h3>
+
+        <img src="https://imgs.search.brave.com/XqSs586cGCHfB9DjNFrDliqe7D4KGF9gDWLjk0nAphQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS50ZW5vci5jb20v/THIxMndKbXpfWmdB/QUFBTS9hcmstYXJr/LWNvaW4uZ2lm.gif"
+            alt="É o consumismo mesmo" class="sidebar-image">
+
+        <strong>
+            Gerenciamneto de produtos
+        </strong>
+
+    </div>
+
+</aside>

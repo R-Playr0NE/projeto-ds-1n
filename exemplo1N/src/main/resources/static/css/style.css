@@ -1,0 +1,576 @@
+body {
+    background-color: #4A76A8;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    margin: 20px 0;
+    padding: 0;
+    color: #000000;
+}
+
+#container {
+    width: 900px;
+    margin: 0 auto;
+    background-color: #D6E3F2;
+    border: 3px outset #FFFFFF;
+    padding: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+#header {
+    background: linear-gradient(to bottom, #0053A0, #003366);
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    border: 2px inset #002244;
+    margin-bottom: 8px;
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px #000000;
+    font-family: Arial Black, Impact, sans-serif;
+}
+
+#navigation {
+    background-color: #B0C4DE;
+    border: 2px outset #FFFFFF;
+    padding: 5px;
+    margin-bottom: 8px;
+}
+
+.menu-btn {
+    background-color: #E6EEF8;
+    border: 2px outset #FFFFFF;
+    padding: 4px 12px;
+    color: #003366;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.menu-btn:hover {
+    background-color: #FFFFCC;
+    border: 2px inset #FFFFFF;
+    color: #FF0000;
+}
+
+.menu-btn.active {
+    background-color: #FFCC66;
+    border: 2px inset #FFFFFF;
+    color: #003366;
+}
+
+#main-wrapper {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+#sidebar {
+    width: 220px;
+    background-color: #C0D4EC;
+    border: 2px inset #FFFFFF;
+    padding: 10px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-image {
+    border: 1px solid #7F9DB9;
+    width: 120px;
+    padding: 2px;
+    background-color: white;
+}
+
+#sidebar p {
+    text-align: center;
+    color: #003366;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+#main-content {
+    flex: 1;
+    background-color: #FFFFFF;
+    border: 2px inset #FFFFFF;
+    padding: 15px;
+    box-sizing: border-box;
+    min-height: 400px;
+}
+
+.page-title {
+    color: #003366;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 5px;
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.welcome-box {
+    border: 1px dashed #003366;
+    background-color: #F4F8FC;
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.welcome-box h3 {
+    color: #003366;
+    margin-top: 0;
+}
+
+#footer {
+    background-color: #B0C4DE;
+    border: 2px inset #FFFFFF;
+    padding: 8px;
+    text-align: center;
+    font-size: 11px;
+    color: #333333;
+}
+
+/* =========================================
+   TABELAS DO SISTEMA
+   ========================================= */
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border: 1px solid #7F9DB9;
+    background-color: #FFFFFF;
+}
+
+/* Cabeçalho da tabela */
+.data-table th {
+    background: linear-gradient(to bottom, #E6EEF8, #D0DEEE);
+    color: #003366;
+    padding: 7px;
+    border: 1px solid #7F9DB9;
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Células */
+.data-table td {
+    padding: 7px;
+    border: 1px solid #D6E3F2;
+    color: #000000;
+}
+
+/* Linhas alternadas */
+.data-table tbody tr:nth-child(even) {
+    background-color: #F4F8FC;
+}
+
+.data-table tbody tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+/* Efeito ao passar o mouse */
+.data-table tbody tr:hover {
+    background-color: #FFFFCC;
+}
+
+/* Links dentro da tabela */
+.data-table a {
+    color: #003366;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-right: 8px;
+}
+
+/* Link ao passar o mouse */
+.data-table a:hover {
+    color: #FF0000;
+}
+
+/* =========================================
+   BOTÕES DE AÇÃO
+   ========================================= */
+
+.btn-action {
+    display: inline-block;
+
+    background: linear-gradient(to bottom, #0053A0, #003366);
+
+    color: #FFFFFF;
+
+    border: 2px outset #FFFFFF;
+
+    padding: 5px 12px;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    margin-bottom: 5px;
+}
+
+.btn-action:hover {
+    background: linear-gradient(to bottom, #0066CC, #004080);
+
+    color: #FFFFCC;
+
+    border: 2px inset #FFFFFF;
+}
+
+.btn-action:active {
+    border: 2px inset #FFFFFF;
+}
+
+/* =========================================
+   AJUSTES DAS COLUNAS
+   ========================================= */
+
+.data-table th:first-child,
+.data-table td:first-child {
+    width: 60px;
+    text-align: center;
+}
+
+.data-table th:last-child,
+.data-table td:last-child {
+    width: 130px;
+    white-space: nowrap;
+}
+
+/* =========================================
+   RESPONSIVIDADE - BOOTSTRAP
+   ========================================= */
+
+/* Tablets e telas menores */
+@media (max-width: 991.98px) {
+
+    #container {
+        width: 100%;
+        max-width: 900px;
+        box-sizing: border-box;
+    }
+
+    #main-wrapper {
+        width: 100%;
+    }
+
+    #sidebar {
+        width: 100%;
+        min-height: 180px;
+    }
+
+    #main-content {
+        width: 100%;
+        min-width: 0;
+    }
+
+}
+
+
+/* Celulares */
+@media (max-width: 767.98px) {
+
+    body {
+        margin: 10px 0;
+    }
+
+    #container {
+        width: 100%;
+        margin: 0;
+        padding: 6px;
+        border-width: 2px;
+    }
+
+    #header {
+        padding: 15px 10px;
+    }
+
+    #header h1 {
+        font-size: 22px;
+    }
+
+    #navigation {
+        padding: 5px;
+    }
+
+    .menu-btn {
+        margin-right: 0;
+        margin-bottom: 2px;
+        padding: 6px 10px;
+    }
+
+    #sidebar {
+        min-height: 150px;
+        padding: 15px;
+    }
+
+    .sidebar-image {
+        max-width: 120px;
+        height: auto;
+    }
+
+    #main-content {
+        padding: 10px;
+        min-height: 300px;
+    }
+
+    .page-title {
+        font-size: 16px;
+    }
+
+    .welcome-box {
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .btn-action {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .data-table {
+        font-size: 11px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 6px;
+    }
+
+    #footer {
+        font-size: 10px;
+    }
+
+}
+
+
+/* Celulares muito pequenos */
+@media (max-width: 480px) {
+
+    #header h1 {
+        font-size: 19px;
+        letter-spacing: 1px;
+    }
+
+    .menu-btn {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    #sidebar {
+        min-height: 130px;
+    }
+
+    .page-title {
+        font-size: 15px;
+    }
+
+    .welcome-box h3 {
+        font-size: 15px;
+    }
+
+    .welcome-box p {
+        font-size: 11px;
+    }
+
+}
+
+/* =========================================
+   FORMULÁRIOS DO SISTEMA
+   ========================================= */
+
+.form-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+
+/* Formulário */
+
+.system-form {
+    width: 100%;
+    background-color: #F4F8FC;
+    border: 4px inset #FFFFFF;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+/* Grupo de campo */
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+/* Labels */
+
+.form-group label {
+    display: block;
+
+    color: #003366;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+
+/* Inputs e Select */
+
+.form-input {
+    display: block;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    background-color: #FFFFFF;
+
+    border: 2px inset #FFFFFF;
+
+    border-top-color: #7F9DB9;
+    border-left-color: #7F9DB9;
+    border-right-color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
+
+    padding: 7px;
+
+    font-family: Tahoma, Arial, sans-serif;
+
+    font-size: 12px;
+
+    color: #000000;
+}
+
+
+/* Foco */
+
+.form-input:focus {
+    outline: none;
+
+    background-color: #FFFFF5;
+
+    border: 2px inset #003366;
+}
+
+
+/* Área dos botões */
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+
+/* Botão do formulário */
+
+.btn-form {
+    background: linear-gradient(to bottom, #0053A0, #003366);
+
+    color: #FFFFFF;
+
+    border: 2px outset #FFFFFF;
+
+    padding: 6px 16px;
+
+    font-family: Tahoma, Arial, sans-serif;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.btn-back {
+    background: linear-gradient(to bottom, #B0C4DE, #7F9DB9);
+    color: #003366;
+}
+
+.btn-back:hover {
+    background: linear-gradient(to bottom, #D6E3F2, #9FB6CE);
+    color: #003366;
+}
+
+
+/* Hover */
+
+.btn-form:hover {
+    background: linear-gradient(to bottom, #0066CC, #004080);
+
+    color: #FFFFCC;
+
+    border: 2px inset #FFFFFF;
+}
+
+
+/* Clique */
+
+.btn-form:active {
+    border: 2px inset #FFFFFF;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE DOS FORMULÁRIOS
+   ========================================= */
+
+@media (max-width: 767.98px) {
+
+    .form-container {
+        max-width: 100%;
+    }
+
+    .system-form {
+        padding: 15px;
+    }
+
+    .form-actions {
+        justify-content: stretch;
+    }
+
+    .btn-form {
+        width: 100%;
+    }
+
+}
+
+
+/* Celulares pequenos */
+
+@media (max-width: 480px) {
+
+    .system-form {
+        padding: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-input {
+        padding: 8px;
+    }
+
+}

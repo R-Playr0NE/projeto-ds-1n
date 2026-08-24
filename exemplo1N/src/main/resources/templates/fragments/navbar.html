@@ -1,0 +1,22 @@
+<nav id="navigation" class="d-flex flex-wrap gap-1" th:fragment="navbar(activePage)">
+
+    <a class="menu-btn" th:classappend="${activePage == 'home'} ? ' active' : ''" th:href="@{/projetoDsN1}">
+        [ Home ]
+    </a>
+
+    <a class="menu-btn" th:classappend="${activePage == 'funcionarios'} ? ' active' : ''"
+        th:href="@{/funcionarioCTR/listarAll}">
+        [ Funcionários ]
+    </a>
+
+    <a class="menu-btn" th:classappend="${activePage == 'empresas'} ? ' active' : ''"
+        th:href="@{/empresaCTR/listarTodasEmpresas}">
+        [ Empresas ]
+    </a>
+
+    <a class="menu-btn" th:classappend="${activePage == 'produtos'} ? ' active' : ''"
+        th:href="@{/produtoCTR/listarAll}">
+        [ Produtos ]
+    </a>
+
+</nav>

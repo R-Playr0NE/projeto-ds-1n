@@ -3,36 +3,91 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cadastro Funcionario</title>
+    <link rel="icon" type="image/png" th:href="@{/image/empresa-icon.png}">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Meu CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
-    <h2>Cadastrar Funcionario</h2>
+    <div class="form-container">
 
-    <form th:action="@{/funcionarioCTR/salvarFuncionario}" method="post" th:object="${funcionario}">
+        <h2 class="page-title">
+            Cadastrar Funcionário
+        </h2>
 
-        <input type="hidden" th:field="*{id_funcionario}" />
+        <form class="system-form" th:action="@{/funcionarioCTR/salvarFuncionario}" method="post"
+            th:object="${funcionario}">
 
-        <label>Nome:</label>
-        <input type="text" th:field="*{nome_funcionario}" required><br>
+            <input type="hidden" th:field="*{id_funcionario}" />
 
-        <label>Cargo:</label>
-        <input type="text" th:field="*{cargo_funcionario}" required><br>
+            <div class="form-group">
+                <label for="nome_funcionario">
+                    Nome:
+                </label>
 
-        <label>Salário:</label>
-        <input type="number" step="0.01" th:field="*{salario_funcionario}" required><br>
+                <input type="text" id="nome_funcionario" class="form-input" th:field="*{nome_funcionario}" required>
+            </div>
 
-        <label>Empresa:</label>
-        <select th:field="*{empresaID}" required>
-            <option value="">Selecione uma empresa</option>
-            <option th:each="emp : ${empresas}" th:value="${emp.id_empresa}" th:text="${emp.nome_empresa}">
-            </option>
-        </select>
 
-        <button type="submit">Salvar</button>
+            <div class="form-group">
+                <label for="cargo_funcionario">
+                    Cargo:
+                </label>
 
-    </form>
+                <input type="text" id="cargo_funcionario" class="form-input" th:field="*{cargo_funcionario}" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="salario_funcionario">
+                    Salário:
+                </label>
+
+                <input type="number" id="salario_funcionario" step="0.01" class="form-input"
+                    th:field="*{salario_funcionario}" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="empresaID">
+                    Empresa:
+                </label>
+
+                <select id="empresaID" class="form-input" th:field="*{empresaID}" required>
+
+                    <option value="">
+                        Selecione uma empresa
+                    </option>
+
+                    <option th:each="emp : ${empresas}" th:value="${emp.id_empresa}" th:text="${emp.nome_empresa}">
+                    </option>
+
+                </select>
+            </div>
+
+
+            <div class="form-actions">
+
+                <a th:href="@{/funcionarioCTR/listarAll}" class="btn-form btn-back">
+                    Voltar
+                </a>
+
+                <button type="submit" class="btn-form">
+                    Salvar
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
 
 </body>
 
